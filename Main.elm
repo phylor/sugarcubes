@@ -1,6 +1,6 @@
 import Html exposing (div, input, span, text, img)
-import Html.Attributes exposing (placeholder, src, style, rel, href, autofocus, class)
-import Html.Events exposing (onInput)
+import Html.Attributes exposing (placeholder, src, style, rel, href, autofocus, class, value)
+import Html.Events exposing (onInput, onClick)
 
 type alias Model =
   { containedSugarInG : String
@@ -10,6 +10,7 @@ type alias Model =
 type Message
   = InputSugarWeight String
   | InputContentWeight String
+  | ChangeContentTo String
 
 main = Html.program
   { init = init
@@ -25,7 +26,12 @@ view model =
   div []
     [  Html.node "link" [ rel "stylesheet", href "style.css" ] []
     , input [ onInput InputSugarWeight, placeholder "Sugar in g per 100ml", autofocus True ] []
-    , input [ onInput InputContentWeight, placeholder "ml" ] []
+    , input [ onInput InputContentWeight, placeholder "ml", value model.contentInMl ] []
+    , div [ class "contentButtons" ]
+        [ div [] [ img [ src "glass.svg", style [("width", "3rem")], onClick <| ChangeContentTo "200" ] [] ]
+        , div [] [ img [ src "cup.svg", style [("width", "4rem")], onClick <| ChangeContentTo "330" ] [] ]
+        , div [] [ img [ src "bottle.svg", style [("width", "5rem")], onClick <| ChangeContentTo "500" ] [] ]
+        ]
     , renderCubes model
     ]
 
@@ -60,3 +66,5 @@ update message model =
       ( { model | containedSugarInG = weight }, Cmd.none )
     InputContentWeight weight ->
       ( { model | contentInMl = weight }, Cmd.none )
+    ChangeContentTo content ->
+      ( { model | contentInMl = content }, Cmd.none )

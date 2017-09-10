@@ -19,3 +19,23 @@ input:focus {
   font-size: 2rem;
   font-weight: bold;
 }
+
+.contentButtons {
+  width: 100%;
+}
+
+.contentButtons div {
+  width: 30%;
+  float: left;
+  height: 5rem;
+  position: relative;
+}
+
+.contentButtons img {
+  position: absolute;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
