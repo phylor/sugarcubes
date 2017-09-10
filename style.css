@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+}
+
+input {
+  padding: 0.75rem;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.cubes {
+  text-align: center;
+}
+
+.cubecount {
+  font-size: 2rem;
+  font-weight: bold;
+}
