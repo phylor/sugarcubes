@@ -30,6 +30,7 @@ input:focus {
   float: left;
   height: 7rem;
   position: relative;
+  cursor: pointer;
 }
 
 .contentButtons .label {
