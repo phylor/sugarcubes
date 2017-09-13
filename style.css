@@ -25,16 +25,23 @@ input:focus {
   height: 5rem;
 }
 
-.contentButtons div {
+.contentButtons > div {
   width: 30%;
   float: left;
-  height: 5rem;
+  height: 7rem;
   position: relative;
+}
+
+.contentButtons .label {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .contentButtons img {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
   left: 0;
